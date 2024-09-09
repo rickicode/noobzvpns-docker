@@ -2,7 +2,7 @@
 
 # Cek apakah binary noobz tersedia
 echo "Downloading Binary..."
-wget -q -O /usr/bin/noobz https://0ms.dev/mirrors/github.com/noobz-id/noobzvpns/raw/master/noobzvpns.x86_64
+wget -O /usr/bin/noobz https://mirror.ghproxy.com/https://github.com/noobz-id/noobzvpns/raw/master/noobzvpns.x86_64
 chmod +x /usr/bin/noobz
 
 echo "Downloading Config..."
@@ -25,7 +25,7 @@ if [ -n "$PORT_NTLS" ] && [[ "$PORT_NTLS" =~ ^[0-9]+$ ]]; then
 fi
 
 if [ ! -f "/usr/bin/noobz" ]; then
-    wget -O /usr/bin/noobz https://0ms.dev/mirrors/github.com/noobz-id/noobzvpns/raw/master/noobzvpns.x86_64
+    wget -O /usr/bin/noobz https://mirror.ghproxy.com/https://github.com/noobz-id/noobzvpns/raw/master/noobzvpns.x86_64
     chmod +x /usr/bin/noobz
 fi
 
