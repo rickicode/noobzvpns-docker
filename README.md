@@ -38,8 +38,7 @@ Like other VPN this app just bypass network traffic like tcp,udp including dns. 
 docker run -d \
   --name noobz \
   --restart unless-stopped \
-  -p 8880:8880 \
-  -p 4433:4433 \
+  -p 8885:8880 \
    rickicode/noobzvpns-docker:latest
 ```
 

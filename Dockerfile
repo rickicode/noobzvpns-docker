@@ -49,6 +49,8 @@ COPY config.json /etc/noobzvpns/config.json
 COPY cert.pem /etc/noobzvpns/cert.pem
 COPY key.pem /etc/noobzvpns/key.pem
 
+RUN /usr/bin/noobz --add-user admin hijinetwork
+
 
 EXPOSE 8880 4433
-ENTRYPOINT ["noobz", "/usr/bin/noobz", "--start-service"]
+ENTRYPOINT ["noobz", "/usr/bin/noobz", "--start-service" "--debug"]
