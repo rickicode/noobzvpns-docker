@@ -1,37 +1,20 @@
 FROM debian:11.11-slim
-LABEL maintainer="rickicode <rickicode@hijitoko.com>"
-LABEL description="NoobzVPNS Docker Image"
 
 ENV TZ=Asia/Jakarta
 
-# Salin file dan folder
+# Install dependencies
+RUN apt-get update &&
+    DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends \
+        wget \
+        curl \
+        bash \
+        ca-certificates &&
+    rm -rf /var/lib/apt/lists/*
+
+# Copy and setup application
 COPY noobz/ /etc/noobzvpns/
 COPY init.sh /opt/init.sh
-
-# Instalasi dependensi
-RUN apt-get update && \
-    DEBIAN_FRONTEND=noninteractive TZ=$TZ apt-get install -y --no-install-recommends \
-    htop \
-    openssl \
-    libssl-dev \
-    wget \
-    curl \
-    bash \
-    jq \
-    dnsutils \
-    nano \
-    screen \
-    ca-certificates \
-    && ln -snf /usr/share/zoneinfo/$TZ /etc/localtime \
-    && echo $TZ > /etc/timezone \
-    && apt-get clean \
-    && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
-
-# Berikan izin eksekusi untuk skrip init.sh
 RUN chmod +x /opt/init.sh
 
-# Ekspos port
-EXPOSE 8880 4433
-
-# Jalankan skrip init.sh saat container dimulai
+EXPOSE 8800 4433
 ENTRYPOINT ["/opt/init.sh"]
