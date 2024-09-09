@@ -2,13 +2,13 @@ FROM debian:11.11-slim
 LABEL maintainer="rickicode <rickicode@hijitoko.com>"
 LABEL description="NoobzVPNS Docker Image"
 
-# ENV NAME=HIJINETWORK
 ENV TZ=Asia/Jakarta
 
+# Salin file dan folder
 COPY noobz/ /etc/noobzvpns/
 COPY init.sh /opt/init.sh
 
-# RUN sed -i 's/http:\/\/archive.ubuntu.com/http:\/\/id.archive.ubuntu.com/g' /etc/apt/sources.list \
+# Instalasi dependensi
 RUN apt-get update && \
     DEBIAN_FRONTEND=noninteractive TZ=$TZ apt-get install -y --no-install-recommends \
     htop \
@@ -25,9 +25,13 @@ RUN apt-get update && \
     && ln -snf /usr/share/zoneinfo/$TZ /etc/localtime \
     && echo $TZ > /etc/timezone \
     && apt-get clean \
-    && chmod +x /opt/init.sh \
     && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
+# Berikan izin eksekusi untuk skrip init.sh
+RUN chmod +x /opt/init.sh
 
+# Ekspos port
 EXPOSE 8880 4433
+
+# Jalankan skrip init.sh saat container dimulai
 ENTRYPOINT ["/opt/init.sh"]
