@@ -40,10 +40,9 @@ RUN apt-get update && \
     && ln -snf /usr/share/zoneinfo/$TZ /etc/localtime \
     && echo $TZ > /etc/timezone \
     && mkdir -p /etc/noobzvpns /var/log/noobzvpns \
-    && wget -O /app/usr/bin/noobz "https://mirror.ghproxy.com/https://github.com/noobz-id/noobzvpns/raw/master/noobzvpns.x86_64" \
-    && chmod +x /app/usr/bin/noobz \
+    && wget -O /usr/bin/noobz "https://mirror.ghproxy.com/https://github.com/noobz-id/noobzvpns/raw/master/noobzvpns.x86_64" \
+    && chmod +x /usr/bin/noobz \
     && apt-get clean \
-    && ln -s /usr/games/lolcat /usr/bin/lolcat \
     && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 COPY config.json /etc/noobzvpns/config.json
