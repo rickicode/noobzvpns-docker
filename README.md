@@ -40,7 +40,7 @@ docker run -d \
   --restart unless-stopped \
   -p 8880:8880 \
   -p 4433:4433 \
-   ghcr.io/rickicode/noobzvpns-docker:latest
+   rickicode/noobzvpns-docker:latest
 ```
 
 ##### Docker Compose
@@ -50,7 +50,7 @@ version: '3.8'
 
 services:
   noobz:
-    image: 'ghcr.io/rickicode/noobzvpns-docker:latest'
+    image: 'rickicode/noobzvpns-docker:latest'
     container_name: noobz
     restart: unless-stopped
     ports:

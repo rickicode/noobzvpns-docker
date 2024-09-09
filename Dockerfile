@@ -29,9 +29,8 @@ RUN apt-get update && \
     libc-bin \
     musl-dev \
     gcc \
-    # cmake \
-    # make \
-    # supervisor \
+    wget \
+    curl \
     bash \
     jq \
     dnsutils \
