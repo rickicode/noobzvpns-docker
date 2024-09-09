@@ -40,14 +40,10 @@ RUN apt-get update && \
     && ln -snf /usr/share/zoneinfo/$TZ /etc/localtime \
     && echo $TZ > /etc/timezone \
     && mkdir -p /etc/noobzvpns /var/log/noobzvpns \
-    && wget -O /usr/bin/noobz "https://mirror.ghproxy.com/https://github.com/noobz-id/noobzvpns/raw/master/noobzvpns.x86_64" \
-    && chmod +x /usr/bin/noobz \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
-COPY config.json /etc/noobzvpns/config.json
-COPY cert.pem /etc/noobzvpns/cert.pem
-COPY key.pem /etc/noobzvpns/key.pem
+COPY noobz /etc/noobzvpns
 
 RUN /usr/bin/noobz --add-user admin hijinetwork
 
