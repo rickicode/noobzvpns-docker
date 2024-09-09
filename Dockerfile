@@ -22,14 +22,11 @@ RUN apt-get update && \
     screen \
     ca-certificates \
     && ln -snf /usr/share/zoneinfo/$TZ /etc/localtime \
+    && mv /etc/noobzvpns/noobz /usr/bin/noobz \
+    && /usr/bin/noobz --add-user admin hijinetwork \
     && echo $TZ > /etc/timezone \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
-
-
-
-RUN mv /etc/noobzvpns/noobz /usr/bin/noobz \
-    && /usr/bin/noobz --add-user admin hijinetwork
 
 
 EXPOSE 8880 4433
