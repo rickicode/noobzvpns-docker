@@ -53,4 +53,4 @@ RUN /usr/bin/noobz --add-user admin hijinetwork
 
 
 EXPOSE 8880 4433
-ENTRYPOINT ["noobz", "/usr/bin/noobz", "--start-service" "--debug"]
+ENTRYPOINT ["/usr/bin/noobz", "--start-service" "--debug"]
