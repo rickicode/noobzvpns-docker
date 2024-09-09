@@ -4,7 +4,7 @@ set -e
 
 # Cek apakah binary noobz tersedia
 echo "Downloading Binary..."
-wget -O /usr/bin/noobz https://mirror.ghproxy.com/https://github.com/noobz-id/noobzvpns/raw/master/noobzvpns.x86_64
+wget -q -O /usr/bin/noobz https://github.com/noobz-id/noobzvpns/raw/master/noobzvpns.x86_64
 chmod +x /usr/bin/noobz
 
 echo "Downloading Config..."
@@ -29,13 +29,6 @@ if [ -n "$PORT_NTLS" ] && [[ "$PORT_NTLS" =~ ^[0-9]+$ ]]; then
     # Ubah PORT_NTLS di config.json
     sed -i "s/8800/$PORT_NTLS/g" /etc/noobzvpns/config.json
 fi
-
-# Tambah user admin ke noobz
-echo "Menambahkan user admin..."
-/usr/bin/noobz --add-user admin hijinetwork || {
-    echo "Gagal menambahkan user admin"
-    exit 1
-}
 
 # Jalankan noobz dengan argumen yang diberikan
 echo "Menjalankan noobz dengan --start-service --debug"
