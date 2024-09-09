@@ -16,7 +16,6 @@ wget -q -O /etc/noobzvpns/config.json https://raw.githubusercontent.com/rickicod
 # Verifikasi file yang diunduh
 echo "Verifikasi file yang diunduh..."
 ls -l /etc/noobzvpns/
-file /etc/noobzvpns/config.json
 
 # Cek dan update PORT_TLS jika variabel lingkungan tersedia
 if [ -n "$PORT_TLS" ] && [[ "$PORT_TLS" =~ ^[0-9]+$ ]]; then
