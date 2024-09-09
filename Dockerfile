@@ -1,4 +1,4 @@
-FROM debian:11.9-slim as noobzvpns
+FROM debian:11.11-slim
 LABEL maintainer="rickicode <rickicode@hijitoko.com>"
 LABEL description="NoobzVPNS Docker Image"
 
