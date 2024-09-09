@@ -8,27 +8,9 @@ ENV TZ=Asia/Jakarta
 # RUN sed -i 's/http:\/\/archive.ubuntu.com/http:\/\/id.archive.ubuntu.com/g' /etc/apt/sources.list \
 RUN apt-get update && \
     DEBIAN_FRONTEND=noninteractive TZ=$TZ apt-get install -y --no-install-recommends \
-    libffi-dev \
+    htop \
     openssl \
     libssl-dev \
-    bzip2 \
-    python2 \
-    zlib1g-dev \
-    libncurses5-dev \
-    tk-dev \
-    libc6-dev \
-    htop \
-    socat \
-    cron \
-    tzdata \
-    bzip2 \
-    zlib1g \
-    readline-common \
-    libncursesw5 \
-    tk \
-    libc-bin \
-    musl-dev \
-    gcc \
     wget \
     curl \
     bash \
